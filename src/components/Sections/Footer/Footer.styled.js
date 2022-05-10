@@ -10,6 +10,9 @@ export const StyledFooter = styled.footer`
   grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
   justify-items: center;
   align-items: center;
+  position:relative;
+  bottom: 0;
+
 
   @media (max-width: 640px) {
     font-size: 0.8rem;

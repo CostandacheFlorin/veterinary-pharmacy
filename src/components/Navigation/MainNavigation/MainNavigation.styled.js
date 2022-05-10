@@ -5,7 +5,7 @@ export const StyledNav = styled.nav`
   height: 4rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   position: sticky;
   color: #565656;
   top: 0;
@@ -14,6 +14,9 @@ export const StyledNav = styled.nav`
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.26);
 
   z-index: 5;
+
+
+  
 `;
 
 export const StyledSearchbar = styled.div`

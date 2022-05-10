@@ -44,13 +44,14 @@ export const StyledMediumButton = styled.button`
   width: 10rem;
   margin-left: auto;
   margin-right: auto;
-  background-image: linear-gradient(-180deg, #00D775, #00BD68);
+  margin: ${(props) => props.margin || "0 auto"};
+  background-image: linear-gradient(-180deg, #00d775, #00bd68);
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
-  color: #FFFFFF;
+  color: #ffffff;
   cursor: pointer;
   display: inline-block;
-  font-family: 'Myriad', sans-serif;
+  font-family: "Myriad", sans-serif;
   height: 44px;
   line-height: 44px;
   outline: 0;
@@ -64,11 +65,29 @@ export const StyledMediumButton = styled.button`
   -webkit-user-select: none;
   vertical-align: top;
   white-space: nowrap;
-  
+
   z-index: 1;
   border: 0;
 
   &:hover {
     background: #00bd68;
   }
+`;
+
+export const StyledIconButton = styled(StyledMediumButton)`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-weight: ${(props) => props.weight || "400"};
+  padding: ${(props) => props.padding || "0px"};
+
+  & svg {
+    color: ${(props) => props.color || "#fff"};
+    font-size: ${(props) => props.fontsize || "30px"};
+    border: 0;
+  }
+`;
+
+export const RoundedCornersButton = styled(StyledMediumButton)`
+  border-radius: 20px;
 `;

@@ -1,5 +1,7 @@
-import "./Product.css";
-import Image from "../../UIElements/Image/Image";
+
+
+import Picture from "../../UIElements/Image/Picture";
+import { RoundedCornersButton } from "../../UIElements/Buttons/Button.styled";
 import {
   StyledProductImage,
   StyledProductCard,
@@ -14,7 +16,10 @@ import { Link } from "react-router-dom";
 const Product = (props) => {
   return (
     <StyledProductCard>
-      <Image classname={"product-image"} image={props.image} />
+      <StyledProductImage>
+      <Picture  image={props.image} />
+      </StyledProductImage>
+     
 
       <StyledProductInfo>
         <StyledProductTitle>{props.title}</StyledProductTitle>
@@ -27,7 +32,7 @@ const Product = (props) => {
           <StyledProductPrice>{props.price} lei</StyledProductPrice>
 
           <StyledProductActions>
-            <button>Adauga in cos</button>
+            <RoundedCornersButton>Adauga in cos</RoundedCornersButton>
           </StyledProductActions>
         </StyledProductContent>
       </StyledProductInfo>

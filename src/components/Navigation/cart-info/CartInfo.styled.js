@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-export const StyledCartInfo = styled.div`
+export const StyledCartInfo = styled(Link)`
   padding-right: 3vw;
   display: flex;
   justify-content: center;
@@ -8,6 +9,7 @@ export const StyledCartInfo = styled.div`
 
   & svg {
     font-size: 30px;
+    color:#add8e6;
   }
 `;
 

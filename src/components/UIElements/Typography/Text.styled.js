@@ -13,6 +13,9 @@ const getTypeStyle = (type, size) => css`
 `;
 
 export const StyledText = styled(Variant)`
+
+
+  
   padding: 0;
  
   margin: ${props => props.margin || "0"};
@@ -26,6 +29,7 @@ export const StyledText = styled(Variant)`
     text-align: ${props => props.align};
     
 
+  
   ${({ bold }) =>
     bold &&
     css`

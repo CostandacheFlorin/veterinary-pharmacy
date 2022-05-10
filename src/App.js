@@ -8,6 +8,10 @@ import Home from "./pages/Home/Home";
 import MainHeader from "./components/Navigation/MainHeader/MainHeader";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
+import ProductInfo from "./pages/ProductInfo/ProductInfo";
+import Cart from "./pages/Cart/Cart";
+import Footer from './components/Sections/Footer/Footer';
+import Favorites from "./pages/Favorites/Favorites";
 
 
 
@@ -32,12 +36,22 @@ function App() {
           <Register />
         </Route>
 
+        <Route path="/produse/produsul" exact>
+          <ProductInfo />
+        </Route>
+        <Route path="/cos" exact>
+          <Cart />
+        </Route>
+        <Route path="/favorite" exact>
+          <Favorites />
+        </Route>
+
+
         <Redirect to="/" />
 
-
-
-
       </Switch>
+      <Footer />
+      
     </>
   );
 }
