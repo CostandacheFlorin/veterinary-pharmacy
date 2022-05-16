@@ -15,7 +15,7 @@ const submitHandler = (e) => {
 
     return ( <StyledCartSubmit>
         <StyledSubmitForm onSubmit={submitHandler}>
-            <Text  type="subtitle" bold="true">{`Total cos: ${props.total}`}</Text>
+            <Text  type="text" size="medium" bold="true">{`Total cos: ${props.total} lei`}</Text>
             <RoundedCornersButton margin="0 1rem" >Trimite comanda</RoundedCornersButton>
         </StyledSubmitForm>
     </StyledCartSubmit>

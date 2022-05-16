@@ -62,4 +62,8 @@ export const StyledProductionInformationButtons = styled.div`
   display: flex;
   gap: 1rem;
 `;
-export const StyledProductionInformationQuantity = styled.div``;
+export const StyledProductionInformationQuantity = styled.div`
+  @media (max-width: 550px) {
+    margin-bottom: 1rem;
+  }
+`;

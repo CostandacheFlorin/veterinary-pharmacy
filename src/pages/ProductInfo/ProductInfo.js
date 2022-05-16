@@ -1,6 +1,8 @@
 import React from "react";
 import ProductInformation from "../../components/Products/ProductInformation/ProductInformation";
 import ProductDescription from "../../components/Products/ProductDescription/ProductDescription";
+import ProductReviews from "../../components/Products/ProductReviews/ProductReviews";
+import AddReview from "../../components/Products/ProductAddReview/AddReview";
 
 const DUMMY_PRODUCT = {
   name: "Nume misto",
@@ -30,6 +32,8 @@ const ProductInfo = () => {
         species={DUMMY_PRODUCT.species}
         ingredients={DUMMY_PRODUCT.ingredients}
       />
+      <ProductReviews />
+      <AddReview/>
       
     </>
   );

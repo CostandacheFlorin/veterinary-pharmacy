@@ -15,6 +15,9 @@ const QuantityControl = (props) => {
     
 
     const removeQuantity = () => {
+      if(quantity===0){
+        return;
+      }
         setQuantity(prevQuantity => prevQuantity - 1);
        
 

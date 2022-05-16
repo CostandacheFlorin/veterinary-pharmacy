@@ -29,13 +29,13 @@ const CartItem = (props) => {
       <StyledCartQuantityControl>
       <QuantityControl id={props.id} name={props.name} />
       
-      <Text type="text"  >
+      <Text type="text" hovercolor="#FF0000"  >
       Elimina din cos
         </Text>
         </StyledCartQuantityControl>
 
     <StyledCartItemPrice>
-    <Text bold="true" type="subtitle" color="#00FF00">
+    <Text bold="true" type="subtitle" >
         {`${props.price} lei`} 
       </Text>
     </StyledCartItemPrice>

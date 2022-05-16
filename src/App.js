@@ -12,6 +12,9 @@ import ProductInfo from "./pages/ProductInfo/ProductInfo";
 import Cart from "./pages/Cart/Cart";
 import Footer from './components/Sections/Footer/Footer';
 import Favorites from "./pages/Favorites/Favorites";
+import SendOrder from "./pages/Order/SendOrder";
+import Profile from "./pages/Profile/Profile";
+import Reviews from "./pages/Reviews/MyReviews/Reviews";
 
 
 
@@ -45,6 +48,18 @@ function App() {
         <Route path="/favorite" exact>
           <Favorites />
         </Route>
+        <Route path="/trimite-comanda" exact>
+          <SendOrder />
+        </Route>
+        <Route path="/profil" exact>
+          <Profile />
+        </Route>
+
+        <Route path="/recenzii" exact>
+          <Reviews />
+        </Route>
+
+
 
 
         <Redirect to="/" />

@@ -18,8 +18,9 @@ export const StyledCartItem = styled.div`
 `;
 
 export const StyledCartItemImage = styled.div`
- width: 10rem;
- margin-left: 0.5rem;
+ width: 32rem;
+display: flex;
+justify-content: center;
  & img {
      height: 10rem;
 
@@ -65,6 +66,7 @@ gap: 3rem;
 flex-direction: column;
 justify-content: space-around;
 margin-left: 0.5rem;
+margin-right: 0.5rem;
 gap: 0;
 & > * > *{
      font-size: 17px;

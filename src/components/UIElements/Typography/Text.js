@@ -14,7 +14,8 @@ const Text = ({
   className,
   margin,
   align,
-  color
+  color,
+  hovercolor
 }) => {
   return (
     <StyledText
@@ -28,6 +29,7 @@ const Text = ({
       margin={margin}
       align={align}
       color={color}
+      hovercolor={hovercolor}
     >
       {children}
     </StyledText>

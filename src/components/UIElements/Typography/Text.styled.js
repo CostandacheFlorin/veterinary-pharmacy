@@ -13,22 +13,22 @@ const getTypeStyle = (type, size) => css`
 `;
 
 export const StyledText = styled(Variant)`
-
-
-  
   padding: 0;
- 
-  margin: ${props => props.margin || "0"};
+
+  margin: ${(props) => props.margin || "0"};
 
   font-weight: normal;
   line-height: 1;
-  font-family: 'Myriad', sans-serif;
-  color: ${props => props.color || "#000"};
-    ${({ type, size }) => getTypeStyle(type, size)};
-  
-    text-align: ${props => props.align};
-    
+  font-family: "Myriad", sans-serif;
+  color: ${(props) => props.color || "#000"};
+  ${({ type, size }) => getTypeStyle(type, size)};
 
+  text-align: ${(props) => props.align};
+
+
+  &:hover {
+    color: ${props => props.hovercolor};
+  }
   
   ${({ bold }) =>
     bold &&

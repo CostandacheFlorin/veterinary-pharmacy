@@ -8,7 +8,7 @@ const Favorites = () => {
 return (
     <StyledFavoritesWrapper>
         <Text type="title" align="center" margin="3rem">Produsele favorite</Text>
-    <FavoritesItem  productName="Pastile pentru un caine bolnav 100g" price={80}></FavoritesItem>
+    <FavoritesItem image={Item1} productName="Pastile pentru un caine bolnav 100g" price={80}></FavoritesItem>
     <FavoritesItem  productName="Pastile pentru un caine bolnav 100g" price={80}></FavoritesItem>
     <FavoritesItem  productName="Pastile pentru un caine bolnav 100g" price={80}></FavoritesItem>
     <FavoritesItem  productName="Pastile pentru un caine bolnav 100g" price={80}></FavoritesItem>

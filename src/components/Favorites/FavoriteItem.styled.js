@@ -1,29 +1,27 @@
 import styled from "styled-components";
 
 export const StyledFavoritesItem = styled.div`
- height: 12rem;
+  height: 12rem;
   width: 70%;
   margin: 2rem auto;
   background-color: #fff;
   display: flex;
- 
+
   justify-content: space-around;
   align-items: center;
   border: 2px solid #e1e1e1;
-  @media (min-width: 875px){
+  @media (min-width: 875px) {
     gap: 5rem;
   }
-  @media (max-width: 875px){
+  @media (max-width: 875px) {
     width: 95%;
   }
-
-
-
 `;
 
 export const StyledFavoritesImage = styled.div`
-  width: 10rem;
-  margin-left: 0.5rem;
+  width: 25rem;
+  display: flex;
+  justify-content: center;
   & img {
     height: 10rem;
   }
@@ -40,7 +38,7 @@ export const StyledFavoritesDescription = styled.div`
   @media (max-width: 875px) {
     flex-direction: column;
     justify-content: space-around;
-    
+
     margin-left: 0.5rem;
     gap: 0;
     & > * > * {
@@ -55,18 +53,16 @@ export const StyledFavoritesItemName = styled.div`
   align-items: center;
 `;
 
-
 export const StyledFavoritesActions = styled.div`
-text-align: center;
-
-`
+  text-align: center;
+`;
 
 export const StyledFavoritesItemPrice = styled.div`
- width:6rem;
-    text-align: center;
-    margin-right: 3rem;
-    
-  @media (max-width: 875px){
+  width: 6rem;
+  text-align: center;
+  margin-right: 3rem;
+
+  @media (max-width: 875px) {
     margin-right: 0;
   }
-`
+`;
