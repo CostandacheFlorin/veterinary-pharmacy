@@ -15,27 +15,25 @@ import {  StyledIconButton } from "../../UIElements/Buttons/Button.styled";
 
 import QuantityControl from "../../UIElements/QuantityControl/QuantityControl";
 import Picture from "../../UIElements/Image/Picture";
-import PozaProdus from "../../../img/medicament4.jpg";
+// import PozaProdus from "../../../img/medicament4.jpg";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import FavoriteIcon from '@mui/icons-material/Favorite';
-const ProductInformation = (props) => {
+const ProductInformation = ({image, name, description, price, }) => {
   return (
     <StyledProductInformation>
       <StyledProductInformationImage>
-        <Picture image={PozaProdus} />
+        <Picture image={image} />
       </StyledProductInformationImage>
       <StyledProductInformationContent>
         <StyledProductInformationName type="title" align="center">
-          {" "}
-          Denumire produs
+          {name}
         </StyledProductInformationName>
 
         <StyledProductInformationDescription type="text" margin="2rem">
-          Aceasta este descrierea produsului pe care am intrat si nu stiu o sa
-          ma ibag ceva text lung sa fie acolo sa arate cat de cat zic nu
+          {description}
         </StyledProductInformationDescription>
         <StyledProductInformationPrice type="subtitle" align="right">
-          33.3 lei
+          {`${price} lei`}
         </StyledProductInformationPrice>
         <StyledProductInformationCallToAction>
           <StyledProductionInformationQuantity>

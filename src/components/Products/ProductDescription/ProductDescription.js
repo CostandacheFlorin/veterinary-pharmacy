@@ -20,6 +20,13 @@ const ProductDescription = (props) => {
       >{`${ingredient.name} in cantitate de ${ingredient.quantity}`}</StyledIngredientItem>
     ));
 
+  const renderSpecies = (species) =>
+    species.map((specie) => (
+      <StyledIngredientItem
+        key={specie.specie}
+      >{`${specie.specie}`}</StyledIngredientItem>
+    ));
+
   return (
     <StyledProductDescriptionWrapper>
       <StyledProductDescriptionHeader>
@@ -43,7 +50,10 @@ const ProductDescription = (props) => {
         <Text type="subtitle" bold={"true"}>
           Speciile tinta ale produsului:
         </Text>
-        <Text type="text">{props.species}</Text>
+        <StyledProductIngredientsList>
+        {renderSpecies(props.species)}
+
+        </StyledProductIngredientsList>
       </StyledProductSpecies>
       <StyledProductUsage>
         <Text type="subtitle" bold={"true"}>

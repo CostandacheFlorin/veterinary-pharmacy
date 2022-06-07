@@ -15,6 +15,7 @@ export const StyledFormContainer = styled.form`
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 15px;
+  text-decoration:none;
 `;
 
 export const StyledLoginOptions = styled.div`

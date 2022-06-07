@@ -1,20 +1,17 @@
-
-
 import TextField from "@mui/material/TextField";
 
-import Link from "@mui/material/Link";
-
+import { Link } from "react-router-dom";
 import Typography from "@mui/material/Typography";
+import Text from "../../components/UIElements/Typography/Text";
 
 // import VisibilityIcon from '@mui/icons-material/Visibility';
 import { useState } from "react";
 
 // trb facuta functie la form sa adauge la inputuri error
 import PageWrapper from "../../components/UIElements/PageWrapper/PageWrapper";
-import backgroundImage from '../../img/patternbackground.jpg';
+import backgroundImage from "../../img/patternbackground.jpg";
 import { StyledLoginOptions, StyledFormContainer } from "../Login/Login.styled";
 import { StyledMediumButton } from "../../components/UIElements/Buttons/Button.styled";
-
 
 const Register = () => {
   const [inputError, setInputError] = useState(false);
@@ -89,20 +86,18 @@ const Register = () => {
           error={inputError}
         />
 
-        <StyledMediumButton>
-          Inregistrare
-        </StyledMediumButton>
+        <StyledMediumButton>Inregistrare</StyledMediumButton>
         <StyledLoginOptions>
-          <Link href="/uitare-parola" variant="body2">
-            Ti-ai uitat parola?
+          <Link to="/uitare-parola" >
+          <Text type="text" size="medium" margin="0.5rem 0" color="#1890ff">Ti-ai uitat parola?</Text>
           </Link>
 
-          <Link href="/autentificare" variant="body2">
-            {"Am deja un cont."}
+          <Link to="/autentificare" >
+          <Text type="text" size="medium" margin="0.5rem 0" color="#1890ff">Am deja un cont.</Text>
           </Link>
         </StyledLoginOptions>
       </StyledFormContainer>
-      </PageWrapper>
+    </PageWrapper>
   );
 };
 

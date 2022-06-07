@@ -28,7 +28,8 @@ export const StyledIngredientItem = styled.li`
 export const StyledProductSpecies = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 1rem;
+   
 `;
 
 export const StyledProductUsage = styled.div`

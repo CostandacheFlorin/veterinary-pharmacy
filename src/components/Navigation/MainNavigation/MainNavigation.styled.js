@@ -5,7 +5,7 @@ export const StyledNav = styled.nav`
   height: 4rem;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   position: sticky;
   color: #565656;
   top: 0;
@@ -20,9 +20,34 @@ export const StyledNav = styled.nav`
 `;
 
 export const StyledSearchbar = styled.div`
-  width: 30%;
+  width: 100%;
 
   @media (max-width: 480px) {
     display: none;
   }
 `;
+
+
+export const StyledLogoutButton = styled.div`
+  
+`
+
+export const StyledLogoArea = styled.div`
+margin-left: 1rem;
+
+`
+
+export const StyledActionsArea = styled.div`
+display: flex;
+margin-right: 1rem;
+width: 40%;
+justify-content: flex-end;
+
+@media (max-width: 480px) {
+  gap: 0.5rem;
+  
+}
+
+`
+export const StyledSearchbarArea = styled.div`
+`

@@ -26,7 +26,7 @@ const Product = (props) => {
 
         <StyledProductContent>
           <StyledProductDetails>
-            <Link to="/produse/"> Click pentru mai multe detalii </Link>
+            <Link to={`/produse/${props.name}`}> Click pentru mai multe detalii </Link>
           </StyledProductDetails>
 
           <StyledProductPrice>{props.price} lei</StyledProductPrice>

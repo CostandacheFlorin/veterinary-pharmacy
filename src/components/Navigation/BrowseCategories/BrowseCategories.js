@@ -7,12 +7,15 @@ const options = [
     name: "Caini",
     options: [
       {
-        title: "optiune1",
-        link: "cai"
+        title: "Mancare",
+        link: "caini/mancare"
       },
       {
-        title: "optiune2",
-        link: "pisici"
+        title: "Medicamente",
+        link: "caini/medicamente"
+      },{
+        title: "Jucarii",
+        link: "caini/jucarii"
       }
     ]
   },
@@ -20,12 +23,15 @@ const options = [
     name: "Pisici",
     options: [
       {
-        title: "optiune3",
-        link: "cai"
+        title: "Mancare",
+        link: "pisici/mancare"
       },
       {
-        title: "optiune4",
-        link: "pisici"
+        title: "Medicamente",
+        link: "pisici/medicamente"
+      },{
+        title: "Jucarii",
+        link: "pisici/jucarii"
       }
     ]
   },
@@ -33,25 +39,30 @@ const options = [
     name: "Rozatoare",
     options: [
       {
-        title: "optiune5",
-        link: "cai"
+        title: "Mancare",
+        link: "rozatoare/mancare"
       },
       {
-        title: "optiune6",
-        link: "pisici"
+        title: "Medicamente",
+        link: "rozatoare/medicamente"
+      },
+      {
+        title: "Jucarii",
+        link: "rozatoare/jucarii"
       }
     ]
+    
   },
   {
-    name: "Iepuri",
+    name: "Pesti",
     options: [
       {
-        title: "optiune7",
-        link: "cai"
+        title: "Mancare",
+        link: "pesti/mancare"
       },
       {
-        title: "optiune8",
-        link: "pisici"
+        title: "Medicamente",
+        link: "pesti/medicamente"
       }
     ]
   },
@@ -59,12 +70,12 @@ const options = [
     name: "Pasari",
     options: [
       {
-        title: "optiune8",
-        link: "cai"
+        title: "Mancare",
+        link: "pasari/mancare"
       },
       {
-        title: "optiune9",
-        link: "pisici"
+        title: "Medicamente",
+        link: "pasari/medicamente"
       }
     ]
   },
@@ -72,12 +83,8 @@ const options = [
     name: "Altele",
     options: [
       {
-        title: "optiune10",
-        link: "reptila"
-      },
-      {
-        title: "optiune11",
-        link: "reptila frate"
+        title: "Combatere daunatori",
+        link: "daunatori"
       }
     ]
   },

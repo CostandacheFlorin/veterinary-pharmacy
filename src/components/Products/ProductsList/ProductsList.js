@@ -5,6 +5,8 @@ import { StyledProductsList, StyledProductsError } from './ProductsList.styled';
 
 const ProductsList = (props) => {
 
+  
+
 
     if (props.items.length === 0) {
         return (
@@ -17,13 +19,15 @@ const ProductsList = (props) => {
       return (
         <StyledProductsList>
           {props.items.map((produs) => {
+            
             return (
               <Product
                 key={produs.id}
                 id={produs.id}
-                title={produs.title}
+                title={produs.name}
                 price={produs.price}
                 image={produs.image}
+                name={produs.name}
               />
             );
           })}
