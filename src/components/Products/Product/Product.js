@@ -17,7 +17,7 @@ const Product = (props) => {
   return (
     <StyledProductCard>
       <StyledProductImage>
-      <Picture  image={props.image} />
+      <Picture  image={`http://localhost:5000/${props.image}`} />
       </StyledProductImage>
      
 

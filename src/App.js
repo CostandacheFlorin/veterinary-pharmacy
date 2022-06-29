@@ -38,9 +38,7 @@ function App() {
           <ProductListing />
         </Route>
 
-        <Route path="/produse/produsul" exact>
-          <ProductInfo />
-        </Route>
+        
         <Route path="/produse/:productname">
           <ProductInfo />
         </Route>
@@ -80,9 +78,7 @@ function App() {
           <Register />
         </Route>
 
-        <Route path="/produse/produsul" exact>
-          <ProductInfo />
-        </Route>
+  
         <Route path="/produse/:productname">
           <ProductInfo />
         </Route>
