@@ -14,4 +14,8 @@ Snippets:
 
 ![image](https://user-images.githubusercontent.com/96582084/175267676-d8ec2e28-81f6-4c09-b5d1-0a78d4f62d25.png)
 ![image](https://user-images.githubusercontent.com/96582084/175267731-8f1fdb63-0c18-436d-9714-03d6cd64681a.png)
+<<<<<<< HEAD
 ![image](https://user-images.githubusercontent.com/96582084/175267792-6c69a825-bf45-41c4-93a2-22681f8acc29.png)
+=======
+![image](https://user-images.githubusercontent.com/96582084/175267792-6c69a825-bf45-41c4-93a2-22681f8acc29.png)
+>>>>>>> a746ce6567a706c59d520265cc4c6474e4f92641
