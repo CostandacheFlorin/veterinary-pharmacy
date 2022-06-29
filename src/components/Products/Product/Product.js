@@ -13,7 +13,23 @@ import {
   StyledProductContent
 } from "./Product.styled";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { cartActions, sendCartData } from "../../../store/cart-slice";
+import { useSelector } from "react-redux";
 const Product = (props) => {
+  const dispatch = useDispatch();
+  const cart = useSelector((state) => state.cart);
+
+
+  const addToCartHandler = () => {
+    dispatch(cartActions.addItemToCart({
+      name: props.name,
+      price: props.price,
+    }));
+    
+    dispatch(sendCartData(cart));
+  }
+
   return (
     <StyledProductCard>
       <StyledProductImage>
@@ -32,7 +48,7 @@ const Product = (props) => {
           <StyledProductPrice>{props.price} lei</StyledProductPrice>
 
           <StyledProductActions>
-            <RoundedCornersButton>Adauga in cos</RoundedCornersButton>
+            <RoundedCornersButton onClick={addToCartHandler}>Adauga in cos</RoundedCornersButton>
           </StyledProductActions>
         </StyledProductContent>
       </StyledProductInfo>

@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ProductsList from "../../components/Products/ProductsList/ProductsList";
 import FilterBox from "../../components/UIElements/FilterBox/FilterBox";
-// import PozaProdus1 from "../../img/medicament1.jpg";
 import ErrorModal from "../../components/UIElements/ErrorModal/ErrorModal";
-// import backgroundImage from "../../img/patternbackground.jpg";
 import {
   StyledFilterCheckboxes,
   StyledProductsListing,
@@ -91,7 +89,7 @@ const DUMMY_FILTER = [
         value: "10-30",
       },
     ],
-  }
+  },
 ];
 
 const ProductListing = () => {
@@ -102,68 +100,56 @@ const ProductListing = () => {
   const [productsPerPage] = useState(12);
   const [pagesNumber, setPagesNumber] = useState(1);
 
-
-
-  
-
-
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         const responseData = await sendRequest(
           "http://localhost:5000/api/products/get-all-products"
         );
-  
+
         setLoadedProducts(responseData.products);
         setCount(responseData.total);
         setPagesNumber(Math.ceil(count / productsPerPage));
       } catch (err) {}
     };
-  
-   
+
     fetchProducts();
   }, [sendRequest, count, productsPerPage]);
 
-
-
-
-  // console.log(loadedProducts);
-  // console.log(count);
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-  const currentProducts = loadedProducts.slice(indexOfFirstProduct, indexOfLastProduct);
-  
-
-  // console.log(currentProducts)
+  const currentProducts = loadedProducts.slice(
+    indexOfFirstProduct,
+    indexOfLastProduct
+  );
 
   const changePage = (event, value) => {
     setCurrentPage(value);
     console.log(currentPage);
-
-  }
-
+  };
 
   return (
     <>
-    <ProductListingLayout background={null}>
-      <StyledFilterCheckboxes>
-        <FilterBox items={DUMMY_FILTER} />
-      </StyledFilterCheckboxes>
-      <StyledProductsListing>
-        <ErrorModal error={error} onClear={clearError} />
-        {isLoading && <LoadingSpinner size={100} />}
-        
-        {!isLoading && loadedProducts && (
-          <ProductsList items={currentProducts} />
-        )}
-        <StyledPagination>
-        
-      <PaginationBar page={currentPage} count={pagesNumber} onChangeHandler={changePage} />
-        </StyledPagination>
-      </StyledProductsListing>
-     
-    </ProductListingLayout>
-    
+      <ProductListingLayout background={null}>
+        <StyledFilterCheckboxes>
+          <FilterBox items={DUMMY_FILTER} />
+        </StyledFilterCheckboxes>
+        <StyledProductsListing>
+          <ErrorModal error={error} onClear={clearError} />
+          {isLoading && <LoadingSpinner size={100} />}
+
+          {!isLoading && loadedProducts && (
+            <ProductsList items={currentProducts} />
+          )}
+          <StyledPagination>
+            <PaginationBar
+              page={currentPage}
+              count={pagesNumber}
+              onChangeHandler={changePage}
+            />
+          </StyledPagination>
+        </StyledProductsListing>
+      </ProductListingLayout>
     </>
   );
 };

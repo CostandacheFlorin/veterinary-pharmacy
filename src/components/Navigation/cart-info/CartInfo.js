@@ -6,8 +6,13 @@ import {
 } from "./CartInfo.styled";
 import {StyledNavText} from '../../UIElements/Typography/NavText.styled';
 
+import { useSelector } from "react-redux";
 
 const CartInfo = () => {
+
+  const cartQuantity = useSelector(state => state.cart.totalQuantity);
+  
+
   return (
     <StyledCartInfo to="/cos">
       
@@ -15,7 +20,7 @@ const CartInfo = () => {
 
       <StyledCartIcon>
         <ShoppingCartIcon />
-        <StyledCartNotification>6</StyledCartNotification>
+        <StyledCartNotification>{cartQuantity || 0 }</StyledCartNotification>
       </StyledCartIcon>
       
     </StyledCartInfo>

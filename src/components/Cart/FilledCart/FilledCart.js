@@ -1,37 +1,50 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { StyledCartWrapper } from "./FilledCart.styled";
 import CartItem from "../CartItem/CartItem";
-import Item1 from "../../../img/medicament7.jpg";
-import Item2 from "../../../img/medicament5.jpg";
-import Item3 from "../../../img/medicament3.jpg";
 import CartSubmit from "../CartSubmit/CartSubmit";
+import { useSelector, useDispatch } from "react-redux";
+import EmptyCart from "../EmptyCart/EmptyCart";
+import { sendCartData } from "../../../store/cart-slice";
 const FilledCart = () => {
+  const cart = useSelector((state) => state.cart);
+  const cartTotal = cart.totalPrice;
+  const cartItems = cart.items;
+  const dispatch = useDispatch();
+  console.log(cartItems);
+
+
+
+  useEffect( () => {
+
+    
+      dispatch(sendCartData(cart));
+    
+    
+  }, [cart, dispatch])
+
+
+
+  if(cartItems.length === 0){
+    return <EmptyCart/>;
+  }
+
+
   return (
     <StyledCartWrapper>
-      <CartItem
-        image={Item1}
-        name="ceva"
-        id="altceva"
-        price={8}
-        productName="ceva medicament"
-      />
+      {cartItems.map((item) => {
+        return (
+          <CartItem
+            key={item.name}
+            name={item.name}
+            id={item.name}
+            price={item.price}
+            productName={item.name}
+            quantity={item.quantity}
+          ></CartItem>
+        );
+      })}
 
-<CartItem
-        image={Item2}
-        name="altnume"
-        id="altceva2"
-        price={155.33}
-        productName="ceva medicament cu denumire lunga 200 miligrame ospatar"
-      />
-
-<CartItem
-       
-        name="altnume2"
-        id="altceva3"
-        price={16.74}
-        productName="ceva medisdsadsad  dddddd dddddcamen dsadsad asdsa dsad sad sad asdas"
-      />
-      <CartSubmit total={200} />
+      <CartSubmit total={cartTotal || 0} />
     </StyledCartWrapper>
   );
 };
