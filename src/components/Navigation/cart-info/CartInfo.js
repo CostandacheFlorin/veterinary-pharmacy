@@ -1,3 +1,4 @@
+import React, {useState, useEffect} from 'react';
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import {
   StyledCartIcon,
@@ -10,8 +11,15 @@ import { useSelector } from "react-redux";
 
 const CartInfo = () => {
 
-  const cartQuantity = useSelector(state => state.cart.totalQuantity);
+  const [cartQuantity, setCartQuantity] = useState(0);
   
+  const quantity = useSelector(state => state.cart.totalQuantity);
+
+  useEffect(() => {
+    setCartQuantity(quantity);
+
+  },[quantity]);
+ 
 
   return (
     <StyledCartInfo to="/cos">

@@ -16,9 +16,13 @@ function getLabelText(value) {
   return `${value} Star${value !== 1 ? 's' : ''}, ${labels[value]}`;
 }
 
-export default function HoverRating() {
+export default function HoverRating({setReviewValue}) {
   const [value, setValue] = React.useState(2);
   const [hover, setHover] = React.useState(-1);
+
+  React.useEffect(() => {
+    setReviewValue(value);
+  },[value])
 
   return (
     <Box

@@ -4,24 +4,23 @@ import CartItem from "../CartItem/CartItem";
 import CartSubmit from "../CartSubmit/CartSubmit";
 import { useSelector, useDispatch } from "react-redux";
 import EmptyCart from "../EmptyCart/EmptyCart";
-import { sendCartData } from "../../../store/cart-slice";
+import { fetchCartData, sendCartData } from "../../../store/cart-slice";
 const FilledCart = () => {
   const cart = useSelector((state) => state.cart);
   const cartTotal = cart.totalPrice;
+
   const cartItems = cart.items;
   const dispatch = useDispatch();
-  console.log(cartItems);
+  console.log(cart);
 
 
+  
 
-  useEffect( () => {
 
-    
-      dispatch(sendCartData(cart));
-    
-    
-  }, [cart, dispatch])
-
+ 
+  useEffect(() => {
+    dispatch(fetchCartData());
+  }, [dispatch]);
 
 
   if(cartItems.length === 0){

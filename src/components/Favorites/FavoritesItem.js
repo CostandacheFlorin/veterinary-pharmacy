@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 
 import { StyledFavoritesItem,StyledFavoritesActions, StyledFavoritesItemPrice,  StyledFavoritesItemName,StyledFavoritesDescription,StyledFavoritesImage } from "./FavoriteItem.styled";
 import Picture from "../UIElements/Image/Picture";
@@ -6,12 +6,41 @@ import Text from "../UIElements/Typography/Text";
 import { StyledIconButton } from "../UIElements/Buttons/Button.styled";
 import { Link } from "react-router-dom";
 import CancelIcon from '@mui/icons-material/Cancel';
+import { useHttpClient } from "../../hooks/http-hook";
+import { useDispatch } from "react-redux";
+import {favoritesActions} from "../../store/favorites-slice";
 
-const FavoritesItem = (props) => {
+const FavoritesItem = ({ name ,...props}) => {
+  
+  const [productImage, setProductImage] =useState("");
+  const { isLoading, error, sendRequest, clearError } = useHttpClient();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+
+    const fetchProductImage = async () => {
+      try {
+        const responseData = await sendRequest(
+          `http://localhost:5000/api/products/get-product-image-by-name/${props.productName}`
+        );
+
+        setProductImage(responseData.image);
+      } catch (err) {}
+    }
+    fetchProductImage();
+
+  },[])
+
+  const removeItemFromFavoritesHandler = () => {
+    dispatch(favoritesActions.removeItemFromFavorites(name));
+    console.log("mere");
+  }
+  console.log(productImage);
+
   return (
     <StyledFavoritesItem>
       <StyledFavoritesImage>
-        <Picture image={props.image} alt={props.name} />
+        <Picture image={`http://localhost:5000/${productImage}`} alt={props.productName} />
       </StyledFavoritesImage>
       <StyledFavoritesDescription>
         <StyledFavoritesItemName>
@@ -25,9 +54,9 @@ const FavoritesItem = (props) => {
         </StyledFavoritesItemName>
 
         <StyledFavoritesActions>
-        <StyledIconButton color="#FF0000" fontsize="30px" weight="bold" padding="20px 40px" style={{width: "8.5rem"}}>
+        <StyledIconButton onClick={removeItemFromFavoritesHandler}  color="#FF0000" fontsize="30px" weight="bold" padding="20px 40px" style={{width: "8.5rem"}}>
               
-         <CancelIcon /> 
+         <CancelIcon  /> 
             </StyledIconButton>
         </StyledFavoritesActions>
 

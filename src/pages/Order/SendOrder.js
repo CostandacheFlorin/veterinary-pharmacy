@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 
 import Text from "../../components/UIElements/Typography/Text";
 import OrderBillingDetails from "../../components/Order/OrderBillingDetails/OrderBillingDetails";
@@ -9,8 +9,17 @@ import {
   StyledOrderLayout,
 
 } from "./SendOrder.styled";
+import { useSelector } from "react-redux";
 
 const SendOrder = () => {
+  const [details, setDetails] = useState("");
+
+  const cart = useSelector((state) => state.cart);
+  
+
+
+
+
   return (
     <>
       <StyledOrderHeader>
@@ -19,9 +28,9 @@ const SendOrder = () => {
         </Text>
       </StyledOrderHeader>
       <StyledOrderLayout>
-      <OrderBillingDetails/>
-      <OrderSummary/>
-       <OrderPaymentMethod/>
+      <OrderBillingDetails setDetails={setDetails}/>
+      <OrderSummary details={details} items={cart.items} total={cart.totalPrice}/>
+       {/* <OrderPaymentMethod/> */}
       </StyledOrderLayout>
     </>
   );

@@ -8,7 +8,7 @@ const StyledRadioButton = ({id, name, value, title}) => {
 
     
       <input type="radio" id={id} name={name} value={value} />
-      <label for={id}>{title}</label>
+      <label htmlFor={id}>{title}</label>
       </StyledRButton>
   );
 };

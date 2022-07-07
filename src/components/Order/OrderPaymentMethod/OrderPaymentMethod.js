@@ -6,6 +6,10 @@ import { StyledPaymentMethod, StyledPaymentHeader, StyledPaymentOptions } from "
 import { StyledMediumButton } from "../../UIElements/Buttons/Button.styled";
 import AddCardIcon from '@mui/icons-material/AddCard';
 const OrderPaymentMethod = () => {
+
+  const sendOrderHandler = () => {
+    console.log("am trimis");
+  }
   return (
     <StyledPaymentMethod>
       <StyledPaymentHeader>
@@ -28,7 +32,7 @@ const OrderPaymentMethod = () => {
         name="payment-method"
         title="Plata la livrare"
       />
-      <StyledMediumButton>Trimite comanda</StyledMediumButton>
+      <StyledMediumButton onClick={sendOrderHandler}>Trimite comanda</StyledMediumButton>
       </StyledPaymentOptions>
 
       

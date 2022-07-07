@@ -7,8 +7,8 @@ import "./Notification.css";
 export const openNotification = (message, description, notificationType, notficationIcon) => {
   const notificationMapping = {
     type: {
-      success: "#2e7d32",
-      fail: "#d32f2f",
+      success: "#4BB543",
+      fail: "#FC100D",
     },
     icon: {
       cart: <ShoppingCartOutlined/>,

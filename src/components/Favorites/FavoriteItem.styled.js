@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledFavoritesItem = styled.div`
   height: 12rem;
-  width: 70%;
+  width: 95%;
   margin: 2rem auto;
   background-color: #fff;
   display: flex;

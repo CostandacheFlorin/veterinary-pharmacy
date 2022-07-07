@@ -1,64 +1,49 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import ReviewItem from "../../Reviews/ReviewItem";
 import { StyledReviewsContainer } from "./ProductReviews.styled";
 import Text from "../../UIElements/Typography/Text";
 
-const DUMMY_DATA = [
-  {
-    key: "review1",
-    text: "Foarte tare chiar mi-a ajutat cainele care era bolnav de cateva zile    si acum se simte mult mai bine multumesc foarte mult penru acest  produs mesaj lung mesaj lung",
-    rating: 4,
-    date: "28 august 1993",
-    name: "Costandache Florin Adrian",
-  },
-  {
-    key: "review2",
-    text: "Foarte tare chiar mi-a ajutat cainele care era bolnav de cateva zile    si acum se simte mult mai bine multumesc foarte mult penru acest  produs mesaj lung mesaj lung",
-    rating: 3,
-    date: "28 august 12001",
-    name: "Ionel Donel",
-  },
-  {
-    key: "review3",
-    text: "Foarte tare chiar mi-a ajutat cainele care era bolnav de cateva zile    si acum se simte mult mai bine multumesc foarte mult penru acest  produs mesaj lung mesaj lung",
-    rating: 2,
-    date: "28 august 1993",
-    name: "Popescu Ionut",
-  },
-  {
-    key: "review4",
-    text: "Foarte tare chiar mi-a ajutat cainele care era bolnav de cateva zile    si acum se simte mult mai bine multumesc foarte mult penru acest  produs mesaj lung mesaj lung",
-    rating: 1,
-    date: "28 august 1993",
-    name: "raicu Mihael",
-  },
-  {
-    key: "review5",
-    text: "Foarte tare chiar mi-a ajutat cainele care era bolnav de cateva zile    si acum se simte mult mai bine multumesc foarte mult penru acest  produs mesaj lung mesaj lung",
-    rating: 0,
-    date: "28 august 1993",
-    name: "Dorel morel",
-  },
-];
 
-const ProductReviews = () => {
+
+const ProductReviews = ({productname}) => {
+  const [reviews, setReviews] = useState([]);
+  console.log(productname);
+
+  useEffect(() => {
+      const fetchReviews = async () => {
+         const response =  await fetch(`http://localhost:5000/api/management/get-reviews-by-productname/${productname}`);
+
+         const responseData = await response.json();
+         setReviews(responseData.reviews);
+        }
+    
+
+      fetchReviews();
+     
+      
+  }, [])
+
+    
+
+
   return (
     <StyledReviewsContainer>
       <Text type="subtitle" bold="true" align="center">
         Recenziile produsului
       </Text>
 
-      {DUMMY_DATA.map((review) => {
+      {reviews.map((review) => {
         return (
           <ReviewItem
-            key={review.key}
+            key={review._id}
             text={review.text}
-            name={review.name}
+            name={review.userId}
             date={review.date}
-            rating={review.rating}
+            rating={review.starsNumber}
           />
         );
       })}
+      {reviews.length === 0 && <Text align="center" margin="1rem 0" bold={true} type="subtitle">Nu au fost adaugate recenzii pentru acest produs, inregistreaza-te pentru a adauga prima recenzie!</Text>}
     </StyledReviewsContainer>
   );
 };

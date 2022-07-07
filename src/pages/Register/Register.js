@@ -88,9 +88,9 @@ const Register = () => {
 
         <StyledMediumButton>Inregistrare</StyledMediumButton>
         <StyledLoginOptions>
-          <Link to="/uitare-parola" >
+          {/* <Link to="/uitare-parola" >
           <Text type="text" size="medium" margin="0.5rem 0" color="#1890ff">Ti-ai uitat parola?</Text>
-          </Link>
+          </Link> */}
 
           <Link to="/autentificare" >
           <Text type="text" size="medium" margin="0.5rem 0" color="#1890ff">Am deja un cont.</Text>

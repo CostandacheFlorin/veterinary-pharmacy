@@ -33,7 +33,6 @@ const QuantityControl = (props) => {
   const changeQuantity = (event) => {
     setQuantity((prevQuantity) => event.target.value);
   };
-  console.log(quantity);
 
   return (
     <StyledQuantityControlWrapper>

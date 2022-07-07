@@ -9,88 +9,11 @@ import {
 import LoadingSpinner from "../../components/UIElements/Loading/LoadingSpinner";
 import { ProductListingLayout } from "../../components/Layout/ProductListing/ProductListing.styled";
 import { useHttpClient } from "../../hooks/http-hook";
+import PriceFilter from "../../components/UIElements/PriceFilter/PriceFilter";
 
 import { StyledPagination } from "./ProductListing.styled";
 import PaginationBar from "../../components/UIElements/Pagination/PaginationBar";
-const DUMMY_FILTER = [
-  {
-    key: "pret",
-    denumire: "Pret",
-
-    valori: [
-      {
-        key: "low",
-        value: "0-30",
-      },
-      {
-        key: "mid",
-        value: "30-100",
-      },
-      {
-        key: "high",
-        value: "100-200",
-      },
-      {
-        key: "very high",
-        value: "200-500",
-      },
-      {
-        key: "test",
-        value: "500+",
-      },
-    ],
-  },
-  {
-    key: "producator",
-    denumire: "Producator",
-
-    valori: [
-      {
-        key: "low",
-        value: "ceva valoare mai lunga zic zic ",
-      },
-      {
-        key: "mid",
-        value: "catena v2 ",
-      },
-      {
-        key: "high",
-        value: "catena v3",
-      },
-      {
-        key: "lowhigh",
-        value: "ceva valoare mai lunga zic zic ",
-      },
-      {
-        key: "mi55d",
-        value: "catena v2 ",
-      },
-      {
-        key: "hi55gh",
-        value: "catena v3",
-      },
-    ],
-  },
-  {
-    key: "pret3",
-    denumire: "pret",
-
-    valori: [
-      {
-        key: "low",
-        value: "10-30",
-      },
-      {
-        key: "mid",
-        value: "10-30",
-      },
-      {
-        key: "high",
-        value: "10-30",
-      },
-    ],
-  },
-];
+import CheckboxGroup from "../../components/UIElements/CheckboxGroup/CheckboxGroup";
 
 const ProductListing = () => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -99,26 +22,90 @@ const ProductListing = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage] = useState(12);
   const [pagesNumber, setPagesNumber] = useState(1);
+  const [priceRange, setPriceRange] = useState([0, 300]);
+  const [isFiltered, setIsFiltered] = useState(false);
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [filteredSpecies, setFilteredSpecies] = useState({
+    caini: true,
+    pisici: true,
+    pasari: true,
+    altele: true,
+    rozatoare: true,
+  });
+  const [speciesOptions, setSpeciesOptions] = useState([
+    "caini",
+    "pisici",
+    "pasari",
+    "rozatoare",
+    "altele",
+  ]);
 
+  const [filteredSpeciesArray, setFilteredSpeciesArray] = useState([
+    "caini",
+    "pisici",
+    "pasari",
+    "rozatoare",
+    "altele",
+  ]);
+
+  const fetchProducts = async () => {
+    try {
+      const responseData = await sendRequest(
+        "http://localhost:5000/api/products/get-all-products"
+      );
+
+      setLoadedProducts(responseData.products);
+      setFilteredProducts(responseData.products);
+      setCount(responseData.total);
+      setPagesNumber(Math.ceil(count / productsPerPage));
+    } catch (err) {}
+  };
   useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const responseData = await sendRequest(
-          "http://localhost:5000/api/products/get-all-products"
-        );
-
-        setLoadedProducts(responseData.products);
-        setCount(responseData.total);
-        setPagesNumber(Math.ceil(count / productsPerPage));
-      } catch (err) {}
-    };
-
     fetchProducts();
   }, [sendRequest, count, productsPerPage]);
 
+  useEffect(() => {
+    const getSpecies = (item, i) => {
+      const listaSpecii = [];
+      item[i].species.map((item) => listaSpecii.push(item.specie));
+      return listaSpecii;
+    };
+
+    if (loadedProducts.length > 5) {
+      const species33 = getSpecies(loadedProducts, 1);
+      console.log(species33);
+      if(filteredSpeciesArray.some((ai) => species33.includes(ai))) {
+        console.log("sarmale");
+      }
+    }
+
+    console.log(filteredSpeciesArray);
+
+    const array3 = loadedProducts.filter((item, index) => {
+      if (item.price > priceRange[0] && item.price < priceRange[1]) {
+        return item;
+      }
+    });
+
+    const finalFilteredArray = [];
+      for(let i=0; i<array3.length;i++) {
+        let extractedSpecies = getSpecies(array3, i);
+        console.log(extractedSpecies);
+        if(filteredSpeciesArray.some((ai) => extractedSpecies.includes(ai))) {
+          finalFilteredArray.push(array3[i]);
+        }
+      }
+      ;
+
+
+    setFilteredProducts(finalFilteredArray);
+  }, [priceRange, filteredSpeciesArray]);
+
+
+
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-  const currentProducts = loadedProducts.slice(
+  const currentProducts = filteredProducts.slice(
     indexOfFirstProduct,
     indexOfLastProduct
   );
@@ -132,7 +119,13 @@ const ProductListing = () => {
     <>
       <ProductListingLayout background={null}>
         <StyledFilterCheckboxes>
-          <FilterBox items={DUMMY_FILTER} />
+          <PriceFilter priceRange={priceRange} setPriceRange={setPriceRange} />
+          <CheckboxGroup
+            options={speciesOptions}
+            title={"animale"}
+            state={filteredSpeciesArray}
+            setState={setFilteredSpeciesArray}
+          />
         </StyledFilterCheckboxes>
         <StyledProductsListing>
           <ErrorModal error={error} onClear={clearError} />

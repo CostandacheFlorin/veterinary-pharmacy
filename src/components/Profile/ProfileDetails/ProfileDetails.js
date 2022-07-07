@@ -22,7 +22,7 @@ const ProfileDetails = ({name, email, phone, address}) => {
   return (
     <StyledProfileDetails>
       <Text type="subtitle" bold="true" align="center">
-        Datele contului dumneavoastra
+        Datele curente ale contului dumneavoastra
       </Text>
       <StyledProfileDetailsInfo>
         <StyledProfileData>
@@ -57,9 +57,9 @@ const ProfileDetails = ({name, email, phone, address}) => {
           <Text type="text"> {address}</Text>
         </StyledProfileData>
       </StyledProfileDetailsInfo>
-      <StyledProfileActionsArea>
+      {/* <StyledProfileActionsArea>
         <StyledMediumButton onClick={navigateToProfileDetails}>Modifica datele </StyledMediumButton>
-      </StyledProfileActionsArea>
+      </StyledProfileActionsArea> */}
     </StyledProfileDetails>
   );
 };

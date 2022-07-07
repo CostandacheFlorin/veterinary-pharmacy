@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import { StyledMediumButton } from "../../UIElements/Buttons/Button.styled";
 import HoverRating from "../../UIElements/Rating/HoverRating";
 import Text from "../../UIElements/Typography/Text";
@@ -10,19 +10,57 @@ import {
   StyledTextArea,
 } from "./AddReview.styled";
 
-import { openNotification } from '../../UIElements/Notifications/Notification';
+import { openNotification } from "../../UIElements/Notifications/Notification";
 
+const AddReview = ({productname}) => {
+  const [reviewText, setReviewText] = useState();
+  const [reviewsStars, setReviewsStars] = useState();
 
-const AddReview = () => {
+  const reviewTextHandler = (event) => {
+    setReviewText(event.target.value);
+  };
 
- 
- 
+  console.log(reviewText);
+  console.log(reviewsStars);
 
+  const reviewStarsHandler = (value) => {
+    setReviewsStars(value);
+  };
 
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
-    openNotification("Recenzie adaugate cu success", " a mers sa adaugi o recenzie vere","success", "review");
-    
+    let userId;
+    if(localStorage.getItem("userData") !== null) {
+      userId = JSON.parse(localStorage.getItem("userData")).userId;
+   } else {
+     userId= "neinregistrat"
+   }
+
+    const response = await fetch(
+      "http://localhost:5000/api/management/add-review",
+      {
+        method: "POST",
+        body: JSON.stringify({
+          userId: userId,
+          productName: productname,
+          starsNumber: reviewsStars,
+          text: reviewText,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+      
+    );
+
+    const responseData = await response.json();
+    console.log(responseData.text);
+      if(response.ok) {
+        openNotification("Recenzie adaugate cu success", "", "success", "review");
+
+      }else {
+        openNotification("Recenzia nu a putut fi adaugata", " ", "fail", "review");
+      }
   };
 
   return (
@@ -31,21 +69,17 @@ const AddReview = () => {
         <Text type="text" bold="true" margin="0 0 1rem 0">
           Recenzie:{" "}
         </Text>
-        <StyledTextArea />
+        <StyledTextArea value={reviewText} onChange={reviewTextHandler} />
       </StyledAddReviewText>
 
       <StyledAddReviewRating>
         <Text type="text" bold="true" margin="0 0 1rem 0">
           Nota:
         </Text>
-        <HoverRating />
+        <HoverRating setReviewValue={reviewStarsHandler} />
 
         <StyledMediumButton margin="3rem 0">Adauga recenzie</StyledMediumButton>
       </StyledAddReviewRating>
-      
-
-
-      
     </StyledAddReviewWrapper>
   );
 };

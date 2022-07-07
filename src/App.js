@@ -17,10 +17,48 @@ import SendOrder from "./pages/Order/SendOrder";
 import Profile from "./pages/Profile/Profile";
 import Reviews from "./pages/Reviews/MyReviews/Reviews";
 import { useAuth } from "./hooks/auth-hook";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { fetchCartData,sendCartData } from "./store/cart-slice";
+import { sendFavoritesData, fetchFavoritesData } from "./store/favorites-slice";
+import SuccesfulOrder from "./pages/Order/SuccesfulOrder";
 
 function App() {
   const { token, login, logout, userId } = useAuth();
+  const dispatch = useDispatch();
+  const cart = useSelector((state) => state.cart);
+  const favorites = useSelector((state) => state.favorites);
 
+  useEffect(() => {
+    dispatch(fetchCartData());
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(fetchFavoritesData());
+  }, [dispatch]);
+
+
+  useEffect( () => {
+
+    if(cart.changed) {
+      dispatch(sendCartData(cart));
+
+    }
+      
+    
+    
+  }, [cart, dispatch])
+
+  useEffect( () => {
+
+    if(favorites.changed) {
+      dispatch(sendFavoritesData(favorites));
+
+    }
+      
+    
+    
+  }, [favorites, dispatch])
   let routes;
 
   if (token) {
@@ -38,7 +76,6 @@ function App() {
           <ProductListing />
         </Route>
 
-        
         <Route path="/produse/:productname">
           <ProductInfo />
         </Route>
@@ -55,6 +92,9 @@ function App() {
         </Route>
         <Route path="/trimite-comanda" exact>
           <SendOrder />
+        </Route>
+        <Route path="/success" exact>
+          <SuccesfulOrder />
         </Route>
 
         <Redirect to="/" />
@@ -78,7 +118,6 @@ function App() {
           <Register />
         </Route>
 
-  
         <Route path="/produse/:productname">
           <ProductInfo />
         </Route>
@@ -90,6 +129,9 @@ function App() {
         </Route>
         <Route path="/trimite-comanda" exact>
           <SendOrder />
+        </Route>
+        <Route path="/success" exact>
+          <SuccesfulOrder />
         </Route>
       </Switch>
     );

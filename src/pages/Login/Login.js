@@ -105,9 +105,9 @@ const Login = () => {
         <StyledMediumButton>Autentificare</StyledMediumButton>
 
         <StyledLoginOptions>
-          <Link to="/uitare-parola">
+          {/* <Link to="/uitare-parola">
             <Text type="text" size="medium" margin="0.5rem 0" color="#1890ff">Ti-ai uitat parola?</Text>
-          </Link>
+          </Link> */}
 
           <Link to="/inregistrare" >
           <Text type="text" size="medium" margin="0.5rem 0" color="#1890ff">Creeaza un cont</Text>

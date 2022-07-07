@@ -10,11 +10,12 @@ import LoadingSpinner from "../../components/UIElements/Loading/LoadingSpinner";
 import { Link } from 'react-router-dom';
 import { StyledBackButton } from "./ProductInfo.styled";
 import  Text from "../..//components/UIElements/Typography/Text";
+import { useAuth } from "../../hooks/auth-hook";
 
 const ProductInfo = () => {
+  const { token, login, logout, userId } = useAuth();
   const [product, setProduct] = useState();
   const { productname } = useParams();
-  console.log(productname);
 
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
 
@@ -26,13 +27,12 @@ const ProductInfo = () => {
         );
         setProduct(responseData.product);
         
-        console.log(responseData.product);
       } catch (err) {}
     };
     fetchProduct();
   }, [sendRequest,  productname]);
-  console.log(product);
 
+ 
   return (
     <>
       <StyledBackButton><Link to="/produse"><Text type="subtitle" align="center" margin="1rem 0" >Inapoi la produse </Text></Link> </StyledBackButton>
@@ -57,8 +57,8 @@ const ProductInfo = () => {
         </>
       )}
 
-      <ProductReviews />
-      <AddReview />
+      <ProductReviews productname={productname} />
+      {token && <AddReview productname={product?.name} />}
     </>
   );
 };
