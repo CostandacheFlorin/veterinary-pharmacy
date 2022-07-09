@@ -22,6 +22,7 @@ import { useEffect } from "react";
 import { fetchCartData,sendCartData } from "./store/cart-slice";
 import { sendFavoritesData, fetchFavoritesData } from "./store/favorites-slice";
 import SuccesfulOrder from "./pages/Order/SuccesfulOrder";
+import OrderHistory from "./pages/Order/OrderHistory";
 
 function App() {
   const { token, login, logout, userId } = useAuth();
@@ -95,6 +96,9 @@ function App() {
         </Route>
         <Route path="/success" exact>
           <SuccesfulOrder />
+        </Route>
+        <Route path="/istoric-comenzi" exact>
+          <OrderHistory />
         </Route>
 
         <Redirect to="/" />
