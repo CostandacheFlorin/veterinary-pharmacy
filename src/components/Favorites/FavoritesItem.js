@@ -44,7 +44,7 @@ const FavoritesItem = ({ name ,...props}) => {
       </StyledFavoritesImage>
       <StyledFavoritesDescription>
         <StyledFavoritesItemName>
-          <Link to={props.productName}>
+          <Link to={"/produse"}>
 
           <Text type="subtitle" bold="true">
             {props.productName}
@@ -54,7 +54,7 @@ const FavoritesItem = ({ name ,...props}) => {
         </StyledFavoritesItemName>
 
         <StyledFavoritesActions>
-        <StyledIconButton onClick={removeItemFromFavoritesHandler}  color="#FF0000" fontsize="30px" weight="bold" padding="20px 40px" style={{width: "8.5rem"}}>
+        <StyledIconButton onClick={removeItemFromFavoritesHandler}  color="#ff003b" fontsize="30px" weight="bold" padding="20px 40px" style={{width: "8.5rem"}}>
               
          <CancelIcon  /> 
             </StyledIconButton>

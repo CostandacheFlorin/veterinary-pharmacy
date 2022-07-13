@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { StyledMediumButton } from "../../UIElements/Buttons/Button.styled";
 import HoverRating from "../../UIElements/Rating/HoverRating";
 import Text from "../../UIElements/Typography/Text";
-
+import { useHistory } from "react-router-dom";
 import {
   StyledAddReviewWrapper,
   StyledAddReviewRating,
@@ -15,13 +15,12 @@ import { openNotification } from "../../UIElements/Notifications/Notification";
 const AddReview = ({productname}) => {
   const [reviewText, setReviewText] = useState();
   const [reviewsStars, setReviewsStars] = useState();
-
+  const history = useHistory();
   const reviewTextHandler = (event) => {
     setReviewText(event.target.value);
   };
 
-  console.log(reviewText);
-  console.log(reviewsStars);
+
 
   const reviewStarsHandler = (value) => {
     setReviewsStars(value);
@@ -61,6 +60,7 @@ const AddReview = ({productname}) => {
       }else {
         openNotification("Recenzia nu a putut fi adaugata", " ", "fail", "review");
       }
+
   };
 
   return (

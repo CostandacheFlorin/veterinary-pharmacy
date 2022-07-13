@@ -3,14 +3,17 @@
     justify-content: center;
     align-items: flex-start;
     max-height: 1rem;
+    position: relative;
 }
 
 .search svg {
-
-    border: 1px solid #000;
+    position: absolute;
+    top: 0px;
+    right: 0px;
 }
 
 .search input {
+    border-radius: 50px;
 }
 
 .search-results{
