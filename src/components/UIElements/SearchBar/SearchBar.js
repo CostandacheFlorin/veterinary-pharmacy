@@ -3,6 +3,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { Autocomplete, TextField } from "@mui/material";
+import Picture from "../Image/Picture";
 const SearchBar = ({ placeholder, data }) => {
   const [value, setValue] = useState("");
   const [options, setOptions] = useState([]);
@@ -12,9 +13,10 @@ const SearchBar = ({ placeholder, data }) => {
   useEffect(() => {
     const fetcHproductNames = async () => {
       const response = await fetch(
-        "http://localhost:5000/api/products/get-all-products-names"
+        "http://localhost:5000/api/products/get-all-products"
       );
       const responseData = await response.json();
+    
 
 
       setOptions(responseData.products);
@@ -22,6 +24,8 @@ const SearchBar = ({ placeholder, data }) => {
 
     fetcHproductNames();
   }, []);
+
+  
 
   const onChangeHandler = (text) => {
     let matches = [];
@@ -35,6 +39,8 @@ const SearchBar = ({ placeholder, data }) => {
     setSuggestions(matches);
     setValue(text);
   };
+
+  console.log(suggestions);
 
   const onSuggestionHandler = (text) => {
     history.push(`/produse/${text}`);
@@ -52,10 +58,11 @@ const SearchBar = ({ placeholder, data }) => {
     >
       <div classname="search-results">
         <input
+        className="search-input-size"
           type="text"
           onChange={(e) => onChangeHandler(e.target.value)}
           value={value}
-          size="18"
+          // size="50"
           
         />
         {suggestions &&
@@ -69,7 +76,10 @@ const SearchBar = ({ placeholder, data }) => {
                   className="choice"
                   key={i}
                 >
-                  {suggestion.name}
+                  <div className="suggestion-image">
+                    <Picture image={`http://localhost:5000/${suggestion.image}`} />
+                    </div>
+                 <p> {suggestion.name} </p>
                 </div>
               );
             }

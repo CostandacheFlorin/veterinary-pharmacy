@@ -7,9 +7,10 @@ export const StyledCartItem = styled.div`
   margin: 2rem auto;
   background-color: #fff;
   display: flex;
- 
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.26);
   justify-content: space-around;
   align-items: center;
+  border: 1px solid grey;
   
   @media (min-width: 875px){
     gap: 5rem;

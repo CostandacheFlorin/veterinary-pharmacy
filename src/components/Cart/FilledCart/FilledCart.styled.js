@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const StyledCartWrapper = styled.div`
 width: 95%;
-background-color: #e4f1f9;
+background-color: #fff;
 min-height:48vh;
 margin: 5rem auto;
 border: 2px solid #e1e1e1 ;

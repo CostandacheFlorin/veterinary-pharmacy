@@ -13,3 +13,6 @@ export const StyledPriceFilter = styled.div`
     border-top: 1px solid rgba(0,0,0,0.26);
     padding: 0 1rem;
 `
+
+export const StyledSliderContainer = styled.div`
+`

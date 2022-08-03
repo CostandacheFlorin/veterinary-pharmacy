@@ -1,38 +1,69 @@
 .search {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    max-height: 1rem;
-    position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  max-height: 1rem;
+  position: relative;
 }
 
 .search svg {
-    position: absolute;
-    top: 0px;
-    right: 0px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
 }
 
 .search input {
-    border-radius: 50px;
+  border-radius: 50px;
 }
 
-.search-results{
-    
-    flex-direction: column;
-    height: 15rem;
+.search-results {
+  flex-direction: column;
+  height: 15rem;
 }
 
-.search-results input {
-    width: 10rem;
+.search-input-size {
+  width: 20rem;
 }
 
 .choice {
-    border: 1px solid grey;
-    color: #000;
-    font-weight: bold;
-    background-color: #fff;
-    width: 154px;
+  border: 1px solid grey;
+  color: #000;
+  font-weight: bold;
+  background-color: #fff;
+  width: 20rem;
+  min-height: 2rem;
+  display: flex;
+  padding-left: 5px;
+  /* justify-content: center; */
+  align-items: center;
 }
+@media (max-width: 800px) {
+  .choice {
+    width: 10rem;
+  }
+
+  .search-input-size {
+    width: 10rem;
+  }
+}
+
+@media (min-width: 1200px) {
+    .choice {
+      width: 30rem;
+    }
+  
+    .search-input-size {
+      width: 30rem;
+    }
+  }
+
 .choice:hover {
-    background-color: lightblue;
+  background-color: lightblue;
+}
+
+.suggestion-image img {
+
+    width: 6rem;
+    height: 6rem;
+
 }

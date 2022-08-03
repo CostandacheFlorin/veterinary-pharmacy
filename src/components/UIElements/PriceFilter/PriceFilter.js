@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Slider from "@mui/material/Slider";
-import { StyledPriceFilter } from "./PriceFilter.styled";
+import { StyledPriceFilter, StyledSliderContainer } from "./PriceFilter.styled";
 import Text from "../Typography/Text";
 import { StyledMediumButton } from "../Buttons/Button.styled";
 const PriceFilter = ({setPriceRange, priceRange, triggerFilter}) => {
@@ -34,6 +34,8 @@ const PriceFilter = ({setPriceRange, priceRange, triggerFilter}) => {
       <Text type="text" size="medium" color="#000">
         Filtreaza dupa pret
       </Text>
+
+
       <Slider
         getAriaLabel={() => "Minimum distance shift"}
         value={priceRange}
@@ -45,6 +47,7 @@ const PriceFilter = ({setPriceRange, priceRange, triggerFilter}) => {
         max={300}
         
       />
+
       
     </StyledPriceFilter>
   );

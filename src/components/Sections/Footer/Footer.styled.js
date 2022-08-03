@@ -12,6 +12,7 @@ export const StyledFooter = styled.footer`
   align-items: center;
   position:relative;
   bottom: 0;
+  margin-top: 15vh;
 
 
   @media (max-width: 640px) {
