@@ -1,17 +1,18 @@
-Web App for a veterinary pharmacy.
+Web Application used for managing a veterinary pharmacy.
 
 Snippets:
 ![image](https://user-images.githubusercontent.com/96582084/175267269-8cc62331-0f0b-4a9b-964a-072ad421aae2.png)
 ![image](https://user-images.githubusercontent.com/96582084/175267328-70bf2e42-c845-413a-a903-3abfdb4814a2.png)
 ![image](https://user-images.githubusercontent.com/96582084/175267371-f8de26a5-ce9c-4d18-9143-0206973313bc.png)
-![image](https://user-images.githubusercontent.com/96582084/175267443-e959cbb3-3f56-4f00-a39b-e3a6a7f1112c.png)
-![image](https://user-images.githubusercontent.com/96582084/175267556-2a38d8c7-4453-45b5-9c33-fde3aa8f465d.png)
-![image](https://user-images.githubusercontent.com/96582084/175267606-b12139f0-bf08-4d67-bbab-02821962b693.png)
-![image](https://user-images.githubusercontent.com/96582084/175267928-0a9a8130-c7bd-464d-82a0-a066cdcf51ab.png)
-![image](https://user-images.githubusercontent.com/96582084/175267962-68e655ad-f8ad-4edc-98b1-518b70f993b3.png)
-![image](https://user-images.githubusercontent.com/96582084/175268016-8ca589ac-85f8-48bf-b140-674495510726.png)
-![image](https://user-images.githubusercontent.com/96582084/175268051-652a97e5-43c9-404a-b626-3dce3ee2345d.png)
+![image](https://user-images.githubusercontent.com/96582084/182607983-411c3772-ffc8-4e35-adad-296b157e1317.png)
+![image](https://user-images.githubusercontent.com/96582084/182608066-cf6eeb42-7b95-43c7-b88d-d886e149261d.png)
+![image](https://user-images.githubusercontent.com/96582084/182608155-d85ef27a-aee7-4394-bd57-b113d110ab45.png)
+![image](https://user-images.githubusercontent.com/96582084/182608193-6c61c9d6-bc8c-4f56-9fc1-ddfcdd25aae6.png)
+![image](https://user-images.githubusercontent.com/96582084/182608310-44669e79-a61b-4b42-b2fa-c2fb5f3e1c73.png)
+![image](https://user-images.githubusercontent.com/96582084/182608345-779658d4-4e41-41fd-bfbf-fb349923e161.png)
+![image](https://user-images.githubusercontent.com/96582084/182608399-4dd3d2a6-5ab4-4705-9351-a419e26c75cd.png)
+![image](https://user-images.githubusercontent.com/96582084/182608457-e33ad014-e059-483a-a3c5-fd1d98f92016.png)
+![image](https://user-images.githubusercontent.com/96582084/182608510-84fae333-47a3-448e-ad9f-8730350b27ab.png)
+![image](https://user-images.githubusercontent.com/96582084/182608553-3109bf04-1e3f-4736-9018-c4b2b37c7f33.png)
 
-![image](https://user-images.githubusercontent.com/96582084/175267676-d8ec2e28-81f6-4c09-b5d1-0a78d4f62d25.png)
-![image](https://user-images.githubusercontent.com/96582084/175267731-8f1fdb63-0c18-436d-9714-03d6cd64681a.png)
-![image](https://user-images.githubusercontent.com/96582084/175267792-6c69a825-bf45-41c4-93a2-22681f8acc29.png)
+
