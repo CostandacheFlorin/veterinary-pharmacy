@@ -23,7 +23,7 @@ import { fetchCartData,sendCartData } from "./store/cart-slice";
 import { sendFavoritesData, fetchFavoritesData } from "./store/favorites-slice";
 import SuccesfulOrder from "./pages/Order/SuccesfulOrder";
 import OrderHistory from "./pages/Order/OrderHistory";
-import Testt from "./pages/Testt";
+
 
 function App() {
   const { token, login, logout, userId } = useAuth();
@@ -138,9 +138,7 @@ function App() {
         <Route path="/success" exact>
           <SuccesfulOrder />
         </Route>
-        <Route path="/test" exact>
-          <Testt/>
-        </Route>
+       
       </Switch>
     );
   }
