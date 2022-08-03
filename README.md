@@ -1,5 +1,9 @@
 Web Application used for managing a veterinary pharmacy.
 
+A user is not required to create a new account, if the user chooses not to use an account, the shopping cart & favorites list data are stored in the browser storage, and not in the database, like a logged in user's data is.
+
+A logged in user can add reviews and see his order history.
+
 Snippets:
 ![image](https://user-images.githubusercontent.com/96582084/175267269-8cc62331-0f0b-4a9b-964a-072ad421aae2.png)
 ![image](https://user-images.githubusercontent.com/96582084/175267328-70bf2e42-c845-413a-a903-3abfdb4814a2.png)
